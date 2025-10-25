@@ -3,7 +3,7 @@ package com.devsuperior.evento.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="tb_categoria")
+@Table(name = "tb_categoria")
 public class Categoria {
 
     @Id
