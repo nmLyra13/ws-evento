@@ -2,8 +2,11 @@ package com.devsuperior.evento.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name="tb_atividades")
+@Table(name="tb_atividade")
 public class Atividade {
 
     @Id
@@ -12,6 +15,9 @@ public class Atividade {
     private String nome;
     private String descricao;
     private Double preco;
+
+    @OneToMany(mappedBy = "atividades")
+    private List<Bloco> blocos = new ArrayList<>();
 
     public Atividade() {
     }

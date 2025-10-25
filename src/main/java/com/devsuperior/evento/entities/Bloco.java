@@ -5,14 +5,20 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "tb_blocos")
+@Table(name = "tb_bloco")
 public class Bloco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant inicio;
     private Instant fim;
+
+    @ManyToOne
+    @JoinColumn(name = "atividade_id")
+    private Atividade atividades;
 
     public Bloco (){
     }

@@ -1,13 +1,9 @@
 package com.devsuperior.evento.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tb_participantes")
+@Table(name = "tb_participante")
 public class Participante {
 
     @Id
@@ -15,6 +11,10 @@ public class Participante {
     private Integer id;
     private String nome;
     private String email;
+
+    @ManyToMany
+    @JoinColumn(name = "atividade_id")
+    private Atividade atividades;
 
     public Participante(){
     }

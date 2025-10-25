@@ -11,6 +11,10 @@ public class Categoria {
     private Integer id;
     private String descricao;
 
+    @OneToMany
+    @JoinColumn(name = "atividade_id")
+    private Atividade atividades;
+
     public Categoria() {
     }
 
