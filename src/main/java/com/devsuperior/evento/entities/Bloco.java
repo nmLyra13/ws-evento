@@ -14,11 +14,13 @@ public class Bloco {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant inicio;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant fim;
 
-    @ManyToOne
-    @JoinColumn(name = "atividade_id")
-    private Atividade atividades;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "atividade_id", nullable = false)
+    private Atividade atividade;
 
     public Bloco (){
     }
